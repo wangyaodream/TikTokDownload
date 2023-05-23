@@ -20,7 +20,7 @@ import Util
 
 class Config:
 
-    def __init__(self):
+    def __init__(self, opt=None):
         self.default = {
             'uid': 'https://v.douyin.com/k9NXNcH/',
             'music': 'yes',
@@ -30,6 +30,7 @@ class Config:
             'interval':'0',
             'update':'yes'
         }
+        self.opt = opt
 
     def check(self):
         """
@@ -42,8 +43,10 @@ class Config:
 
         if Util.os.path.isfile("conf.ini") == True:
             # 用utf-8防止出错
-            # TODO 尝试手动添加参数,可以通过查看cf对象的值来进行添加
             self.cf.read("conf.ini", encoding="utf-8")
+            if self.opt:
+                self.cf.set('uid', 'uid', self.opt)
+
         else:
             print('[  提示  ]:没有检测到配置文件，生成中!\r')
             Util.log.info('[  提示  ]:没有检测到配置文件，生成中!')

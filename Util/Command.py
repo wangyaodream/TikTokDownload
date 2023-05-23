@@ -20,9 +20,9 @@ import Util
 
 class Command:
 
-    def __init__(self):
+    def __init__(self, opt=None):
         # 初始化配置文件
-        self.cfgs = Util.Config()
+        self.cfgs = Util.Config(opt=opt)
         # 检查配置文件是否存在
         self.cfg = self.cfgs.check()
 

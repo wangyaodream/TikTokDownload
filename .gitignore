@@ -140,3 +140,5 @@ readconf.py
 /Util/node_modules/
 1.py
 test.py
+sample.txt
+conf.ini
