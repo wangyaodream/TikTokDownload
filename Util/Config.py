@@ -42,6 +42,7 @@ class Config:
 
         if Util.os.path.isfile("conf.ini") == True:
             # 用utf-8防止出错
+            # TODO 尝试手动添加参数,可以通过查看cf对象的值来进行添加
             self.cf.read("conf.ini", encoding="utf-8")
         else:
             print('[  提示  ]:没有检测到配置文件，生成中!\r')
